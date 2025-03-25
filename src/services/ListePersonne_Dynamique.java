@@ -6,8 +6,8 @@ public class ListePersonne_Dynamique {
 
     private Personne[] personnes;
 
-    public ListePersonne_Dynamique(Personne[] personnes) {
-        this.personnes = personnes;
+    public ListePersonne_Dynamique() {
+        Personne[] personnes = new Personne[0];
     }
 
     public int getNombre() {
@@ -19,33 +19,32 @@ public class ListePersonne_Dynamique {
     }
 
     public boolean ajouter(Personne p) {
-        boolean existe = false;
+        boolean aReussi = false;
         Personne[] nouvelleListe = new Personne[this.personnes.length + 1];
         for (int i = 0; i < this.personnes.length; i++) {
             nouvelleListe[i] = this.personnes[i];
         }
         nouvelleListe[nouvelleListe.length - 1] = p;
-        existe = true;
+        aReussi = true;
         this.personnes = nouvelleListe;
-        return existe;
+        return aReussi;
     }
 
     public boolean supprimer(Personne p) {
-        boolean existe = false;
+        boolean aReussi = false;
         Personne[] nouvelleListe = new Personne[this.personnes.length -1];
         
         for (int i = 0; i < this.personnes.length; i++) {
             if (this.personnes[i] == p) {
-                existe = true;
-            } else {
-                nouvelleListe[i] = this.personnes[i];
-            }   
-            nouvelleListe[i] = this.personnes[i];
-            existe = true;
+                aReussi = true;
+                i--;
+            } else{
+                personnes[i] = nouvelleListe[i];
+            }
         }
         
         this.personnes = nouvelleListe;
-        return existe;
+        return aReussi;
     }
 
     public void afficher() {
