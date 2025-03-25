@@ -6,8 +6,8 @@ public class ListePersonne_Dynamique {
 
     private Personne[] personnes;
 
-    public ListePersonne_Dynamique(Personne[] personnes) {
-        this.personnes = personnes;
+    public ListePersonne_Dynamique() {
+        this.personnes = new Personne[0];
     }
 
     public int getNombre() {
@@ -36,6 +36,7 @@ public class ListePersonne_Dynamique {
         
         for (int i = 0; i < this.personnes.length; i++) {
             if (this.personnes[i] == p) {
+                personne[i] = null;
                 existe = true;
             } else {
                 nouvelleListe[i] = this.personnes[i];
