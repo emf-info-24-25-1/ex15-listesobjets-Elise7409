@@ -38,23 +38,26 @@ public class ListePersonne_Dynamique {
 
     public boolean supprimer(Personne p) {
         boolean aReussi = false;
-        Personne[] nouvelleListe = new Personne[this.personnes.length - 1];
+        for (int i = 0; i < personnes.length; i++) {
+            if (personnes[i] == p) {
 
-        for (int i = 0; i < this.personnes.length; i++) {
-            if (this.personnes[i] == p) {
-                personnes[i] = null;
-                aReussi = true;
-                i--;
-                
-            } else {
-                personnes[i] = nouvelleListe[i];
+                Personne[] nouvelleListe = new Personne[this.personnes.length - 1];
+
+                for (int j = 0; i < nouvelleListe.length; i++) {
+                    if (this.personnes[j] == p) {
+                        personnes[j] = null;
+                        aReussi = true;
+                        i--;
+
+                    } else {
+                        personnes[j] = nouvelleListe[j];
+                    }
+                }
+                this.personnes = nouvelleListe;
+
             }
         }
-        
-
-        this.personnes = nouvelleListe;
         return aReussi;
-
     }
 
     public void afficher() {
