@@ -42,12 +42,15 @@ public class ListePersonne_Dynamique {
 
         for (int i = 0; i < this.personnes.length; i++) {
             if (this.personnes[i] == p) {
+                personnes[i] = null;
                 aReussi = true;
                 i--;
+                
             } else {
                 personnes[i] = nouvelleListe[i];
             }
         }
+        
 
         this.personnes = nouvelleListe;
         return aReussi;
